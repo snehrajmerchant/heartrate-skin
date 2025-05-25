@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Rate Detector</title>
+    <script type="text/javascript" src="hr-processing.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-logo">PulseSense</div>
+            <div class="header-title">Heart Rate Dashboard</div>
+        </div>
+        <div class="dashboard-row">
+            <div class="dashboard-card">
+                <div class="card-title">Live Video</div>
+                <video id="video" autoplay playsinline style="display:none;"></video>
+                <canvas id="canvas" width="180" height="135"></canvas>
+                <div class="canvas-label">ROI shown as blue box</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-title">Region of Interest</div>
+                <canvas id="frameCanvas" width="180" height="135"></canvas>
+                <div class="canvas-label">ROI highlighted as red box</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-title">Data Points</div>
+                <div id="dataPoints"></div>
+                <div class="canvas-label">Recent green channel averages</div>
+            </div>
+        </div>
+        <div class="dashboard-row">
+            <div class="dashboard-card" style="width:100%;max-width:none;flex:1 1 100%;">
+                <div class="card-title">Trend</div>
+                <canvas id="trendGraph" width="1000" height="120" class="card-graph"></canvas>
+                <div class="canvas-label">Trend of data points</div>
+            </div>
+        </div>
+        <div class="dashboard-row last-row">
+            <div class="dashboard-card">
+                <div class="card-title">Heart Rate</div>
+                <div class="card-value red" id="heartRate" style="font-size:64px;line-height:1.1;">N/A</div>
+                <div class="card-desc" style="font-size:18px;">BPM (beats per minute)</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-title">FFT (DFT) Graph</div>
+                <canvas id="fftGraph" width="320" height="240" class="card-graph"></canvas>
+                <div class="canvas-label">Frequency spectrum (DFT of ROI)</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-title">User Guidance</div>
+                <div id="userPrompt">Unable to detect heart rate. Please adjust your position or camera position so the region of interest is well lit and covers the area.</div>
+                <div class="card-desc" style="margin-top:10px;">
+                    <strong>Instructions:</strong><br>
+                    Center your face in the ROI box on the video so that only skin is visible inside the blue rectangle.<br>
+                    Avoid including background, hair, or clothing in the ROI.<br>
+                    Ensure the region is well lit and remains steady for best results.<br><br>
+                    <strong>Color Legend:</strong><br>
+                    <span style="color:#1976D2; font-weight:bold;">Blue box</span>: ROI on live video<br>
+                    <span style="color:#D32F2F; font-weight:bold;">Red box</span>: ROI on processed frame<br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

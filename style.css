@@ -1,0 +1,191 @@
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: #f8f9ff;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px rgba(80, 112, 255, 0.08);
+    padding: 32px 32px 24px 32px;
+    border: 1.5px solid #e6e9f5;
+}
+.header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+.header-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2d2e83;
+    letter-spacing: 1px;
+}
+.header-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #222;
+    letter-spacing: 0.5px;
+}
+.dashboard-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 24px;
+    justify-content: flex-start;
+}
+.dashboard-row.last-row {
+    flex-wrap: nowrap;
+    gap: 24px;
+}
+.dashboard-row.last-row .dashboard-card {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 320px;
+}
+.dashboard-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(80, 112, 255, 0.06);
+    border: 1.5px solid #e6e9f5;
+    flex: 1 1 260px;
+    min-width: 260px;
+    max-width: 340px;
+    padding: 18px 10px 12px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: box-shadow 0.2s;
+}
+.dashboard-card:hover {
+    box-shadow: 0 6px 24px rgba(80, 112, 255, 0.13);
+}
+.card-title {
+    font-size: 13px;
+    color: #6b6f8a;
+    margin-bottom: 6px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+.card-value {
+    font-size: 40px;
+    font-weight: bold;
+    color: #2d2e83;
+    margin-bottom: 2px;
+}
+.card-value.red {
+    color: #e53935;
+}
+.card-value.green {
+    color: #43a047;
+}
+.card-desc {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+}
+.card-graph {
+    width: 100%;
+    margin-top: 4px;
+}
+.canvas-label {
+    text-align: center;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #1976D2;
+    letter-spacing: 0.5px;
+}
+#canvas, #frameCanvas {
+    width: 180px !important;
+    height: 135px !important;
+    max-width: 100%;
+    border-radius: 8px;
+    background: #f4f6fa;
+    border: 1.5px solid #e6e9f5;
+}
+#dataPoints {
+    margin-top: 12px;
+    font-size: 12px;
+    width: 100%;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    color: #33691E;
+    background: #f1f8e9;
+    border-radius: 6px;
+    min-height: 40px;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: normal;
+    display: block;
+}
+#trendGraph {
+    margin-top: 10px;
+    width: 100% !important;
+    height: 120px !important;
+    min-width: 0;
+    border-radius: 8px;
+    background: #f4f6fa;
+    box-shadow: 0 2px 8px rgba(80, 112, 255, 0.07);
+    border: 1.5px solid #e6e9f5;
+}
+#fftGraph {
+    margin-top: 10px;
+    width: 100% !important;
+    height: 140px !important;
+    min-width: 0;
+    border-radius: 8px;
+    background: #f4f6fa;
+    box-shadow: 0 2px 8px rgba(80, 112, 255, 0.07);
+    border: 1.5px solid #e6e9f5;
+}
+.heart-rate-row {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 18px;
+}
+#heartRate {
+    color: #e53935;
+    margin: 0 8px;
+    font-size: 40px !important;
+    line-height: 1.1;
+}
+#userPrompt {
+    margin-top: 12px;
+    color: #e53935;
+    font-size: 13px;
+    text-align: center;
+    display: none;
+}
+.dashboard-card .card-desc {
+    font-size: 13px;
+}
+.dashboard-card .card-desc strong {
+    font-size: 13px;
+}
+.dashboard-card .card-desc span {
+    font-size: 13px;
+}
+@media (max-width: 1200px) {
+    .container { padding: 8px 1vw; }
+    .dashboard-row { gap: 10px; }
+    .dashboard-row.last-row { gap: 8px; }
+}
+@media (max-width: 900px) {
+    .dashboard-row { flex-direction: column; gap: 8px; }
+    .container { padding: 4px 1vw; }
+    #fftGraph { height: 60px !important; }
+}
+@media (max-width: 600px) {
+    .container { max-width: 99vw; padding: 2vw 1vw; }
+    .dashboard-row { flex-direction: column; gap: 4px; }
+    #canvas, #frameCanvas { width: 98vw !important; height: 28vw !important; }
+    #trendGraph { height: 30px !important; }
+}
